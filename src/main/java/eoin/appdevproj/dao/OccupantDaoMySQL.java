@@ -25,6 +25,21 @@ public class OccupantDaoMySQL  implements OccupantDao{
     }
 
     @Override
+    public int getAverageAge() {
+        return jdbcTemplate.queryForObject("SELECT AVG(age) FROM occupant", Integer.class);
+    }
+
+    @Override
+    public int getNumberStudents() {
+        return jdbcTemplate.queryForObject("SELECT COUNT(*) FROM occupant WHERE occupation='Scholar'", Integer.class);
+    }
+
+    @Override
+    public int getNumberOAPs() {
+        return jdbcTemplate.queryForObject("SELECT COUNT(*) FROM occupant WHERE age>=65", Integer.class);
+    }
+
+    @Override
     public boolean exists(String name) {
         return 1 == jdbcTemplate.queryForObject("SELECT COUNT(1) FROM occupant WHERE occupant.name = ?", new Object[]{name}, Integer.class);
     }

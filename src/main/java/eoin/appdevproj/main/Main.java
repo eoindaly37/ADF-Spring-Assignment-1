@@ -18,6 +18,7 @@ public class Main {
 
         Scanner keyboard = new Scanner(System.in);
 
+
         System.out.println("There are " + occupantserv.countTheOccupants() + " occupant(s) in the database...");
         System.out.println("There are " + houseserv.countTheHouseholds() + " household(s) in the database...");
 

@@ -108,37 +108,17 @@ public class OccupantServiceImp implements OccupantService{
 
     @Override
     public int averageAge() {
-        List<Occupant> occupants = occupantDao.findAllOccupants();
-        int sumage = 0;
-        for(Occupant occupant: occupants){
-            sumage += occupant.getAge();
-        }
-        int average = sumage/occupants.size();
-        return average;
+        return occupantDao.getAverageAge();
     }
 
     @Override
     public int numberStudents() {
-        int totalstudents = 0;
-        List<Occupant> occupants = occupantDao.findAllOccupants();
-        for(Occupant occupant: occupants){
-            if(occupant.getOccupation().contentEquals("Scholar")){
-                totalstudents ++;
-            }
-        }
-        return totalstudents;
+        return occupantDao.getNumberStudents();
     }
 
     @Override
     public int numberOAP() {
-        int totaloaps = 0;
-        List<Occupant> occupants = occupantDao.findAllOccupants();
-        for(Occupant occupant: occupants){
-            if(occupant.getAge()>=65){
-                totaloaps ++;
-            }
-        }
-        return totaloaps;
+        return occupantDao.getNumberOAPs();
     }
 
 }

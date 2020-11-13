@@ -7,6 +7,9 @@ import java.util.List;
 public interface OccupantDao {
 
     int getOccupantCount();
+    int getAverageAge();
+    int getNumberStudents();
+    int getNumberOAPs();
     boolean exists(String name);
     Occupant findOccupantById(int id);
     List<Occupant> findOccupantByEircode(String eircode);
